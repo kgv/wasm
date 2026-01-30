@@ -18,13 +18,15 @@ extern "C" {
 //     web_sys::window().expect("no global `window` exists")
 // }
 
-#[wasm_bindgen]
-pub fn greet_and_log(name: &str) -> Result<(), JsValue> {
-    let greeting = greet(name);
+#[wasm_bindgen(start)]
+pub fn greet_and_log() -> Result<(), JsValue> {
+    console_error_panic_hook::set_once();
+
+    let greeting = greet("name");
     console::log_1(&greeting.into());
     console::time_with_label("test label");
     console::time_end_with_label("test label");
-    // let window = window().expect("no global `window` exists");
+    let window = window().expect("no global `window` exists");
     // let document = window.document().expect("should have a document on window");
     // alert(&greeting);
     // window().alert_with_message("message: &str");
