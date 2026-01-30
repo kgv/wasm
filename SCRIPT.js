@@ -352,6 +352,9 @@
         return bytes;
     }
 
+    if (window.name == 'game') {
+        Game.run();
+    }
     // 4. ЗАПУСК
     async function run() {
         // Декодируем байты
