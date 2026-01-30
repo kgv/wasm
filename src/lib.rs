@@ -18,6 +18,6 @@ extern "C" {
 #[wasm_bindgen]
 pub fn greet_and_log(name: &str) {
     let greeting = greet(name);
-    alert(&greeting); // Call JS alert from Rust
-    log(&greeting); // Call JS console.log from Rust
+    alert(&greeting);
+    log(&greeting);
 }
